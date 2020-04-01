@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resource :qr_code, only: :show
 
     namespace :settings do
-      resource :one_time_password, only: [:new, :create, :show, :destroy] do
+      resource :one_time_password, only: [:new, :create, :destroy] do
         get :intro
       end
     end

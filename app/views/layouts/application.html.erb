@@ -10,9 +10,15 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default public-panel col-md-offset-2 col-md-8">
+          <div class="panel-body">
+            <%= render partial: 'shared/messages' %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

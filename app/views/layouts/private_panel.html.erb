@@ -10,13 +10,25 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header class="bs-docs-nav navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to 'Home', private_panel_root_path, class: 'navbar-brand' %>
+        </div>
+        <nav class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Settings", private_panel_settings_path %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container bs-docs-container">
+      <div class="row">
+        <%= render partial: 'shared/messages' %>
+      </div>
 
-    <%= link_to "Settings", private_panel_settings_path %>
-    <span>|</span>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

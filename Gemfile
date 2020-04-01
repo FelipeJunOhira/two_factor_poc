@@ -11,6 +11,13 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+
+# Boostrap, because why not?
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
+# Also, let's install jQuery too, we like it!
+gem 'jquery-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -30,6 +37,9 @@ gem 'dotenv-rails', '~> 2.5.0'
 # Authentication and acess management
 gem 'devise'
 gem 'devise-two-factor' # 2FA
+
+# Form easy
+gem 'simple_form'
 
 # Generate QRCode
 gem 'rqrcode-rails3'

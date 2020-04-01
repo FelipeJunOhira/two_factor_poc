@@ -45,10 +45,15 @@ GEM
     arel (9.0.0)
     attr_encrypted (3.1.0)
       encryptor (~> 3.0.0)
+    autoprefixer-rails (9.7.5)
+      execjs
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.1)
     chunky_png (1.3.11)
@@ -81,6 +86,10 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    jquery-rails (4.3.5)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -162,6 +171,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.2.1)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
+    simple_form (5.0.2)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -196,11 +216,13 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  bootstrap-sass (~> 3.4.1)
   byebug
   devise
   devise-two-factor
   dotenv-rails (~> 2.5.0)
   jbuilder (~> 2.5)
+  jquery-rails
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry-rails (~> 0.3.6)
@@ -208,6 +230,8 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.2)
   rqrcode-rails3
   sass-rails (~> 5.0)
+  sassc-rails (>= 2.1.0)
+  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

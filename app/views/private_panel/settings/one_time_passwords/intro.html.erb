@@ -1,3 +1,39 @@
-<h1>One Time Password</h1>
+<div class="row">
+  <h1>How to setup 2 Factor Authentication using an App</h1>
+</div>
 
-<%= link_to "With QRCode", new_private_panel_settings_one_time_password_path %>
+<div class="row">
+  <h2>Different types of 2FA explanation...</h2>
+</div>
+
+<div class="row">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div class="row">
+  <hr/>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h2>How do you prefer to receive the Authenticator App Code?</h2>
+  </div>
+
+  <div class="col-md-6">
+    <h3>I like QRCodes!</h3>
+
+    <p>Nice, we too!</p>
+
+    <%= link_to new_private_panel_settings_one_time_password_path do %>
+      <div class="btn btn-success btn-block">
+        Check QRCode right here!
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <h3>I like SMS!</h3>
+
+    <p>Not available yet...</p>
+  </div>
+</div>

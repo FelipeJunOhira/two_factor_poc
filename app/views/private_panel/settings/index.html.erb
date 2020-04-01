@@ -1,11 +1,33 @@
-<h1>Settings</h1>
+<div class="row">
+  <h1>Settings</h1>
+</div>
 
-<% if current_user.otp_required_for_login? %>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading"><b>Two-factor methods</b></div>
 
-  <%= link_to "Disable One Time Password", private_panel_settings_one_time_password_path, method: :delete %>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-6">
+            Authenticator app: <b><%= current_user.otp_required_for_login? ? 'Enabled' : 'Disabled' %></b>
+          </div>
 
-<% else current_user.otp_required_for_login? %>
+          <div class="col-md-6">
+            <div class="pull-right">
+              <% if current_user.otp_required_for_login? %>
 
-  <%= link_to "Config One Time Password", intro_private_panel_settings_one_time_password_path %>
+                <%= link_to "Disable", private_panel_settings_one_time_password_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<% end %>
+              <% else current_user.otp_required_for_login? %>
+
+                <%= link_to "Enable", intro_private_panel_settings_one_time_password_path %>
+
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

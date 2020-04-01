@@ -5,23 +5,26 @@ module PrivatePanel
       end
 
       def new
-        current_user.update(otp_required_for_login: User.generate_otp_secret)
+        current_user.update(otp_secret: User.generate_otp_secret)
         current_user.save!
+
+        @form = PrivatePanel::Settings::OneTimePasswordForm.new
       end
 
       def create
-        if current_user.current_otp == params[:opt_check][:value]
+        @form = PrivatePanel::Settings::OneTimePasswordForm.new(
+          permitted_params.merge(user: current_user)
+        )
+
+        if @form.valid?
           current_user.update(otp_required_for_login: true)
 
           flash[:notice] = 'OTP successfully registered!'
-          redirect_to private_panel_settings_one_time_password_path
+          redirect_to private_panel_settings_path
         else
-          flash[:alert] = 'Something went wrong during OTP check, please try again or contact us!'
+          flash[:alert] = 'Something went wrong during OTP check'
           render :new
         end
-      end
-
-      def show
       end
 
       def destroy
@@ -30,6 +33,12 @@ module PrivatePanel
         flash[:notice] = 'OTP successfully disabled!'
 
         redirect_to private_panel_settings_path
+      end
+
+      private
+
+      def permitted_params
+        params.require(:form).permit([:code])
       end
     end
   end

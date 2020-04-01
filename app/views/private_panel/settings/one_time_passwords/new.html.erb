@@ -1,9 +1,19 @@
-<h1>Scan QRCode:</h1>
+<div class="row">
+  <h1>Setup with QRCode</h1>
+</div>
 
-<%= image_tag private_panel_qr_code_path(format: :svg) %>
+<div class="row">
+  <div class="col-md-6">
+    <h2>First, scan the QRCode below: </h2>
+    <%= image_tag private_panel_qr_code_path(format: :svg), class: 'qrcode' %>
+  </div>
 
-<%= form_for :opt_check, url: private_panel_settings_one_time_password_path do |form| %>
-  <%= form.label :value %>
-  <%= form.text_field :value %>
-  <%= form.submit  %>
-<% end  %>
+  <div class="col-md-6">
+    <h2>Now, let's check if everything is ok!</h2>
+
+    <%= simple_form_for @form, as: :form, url: private_panel_settings_one_time_password_path do |f| %>
+      <%= f.input :code, required: true %>
+      <%= f.button :submit, 'Check code!' %>
+    <% end %>
+  </div>
+</div>
