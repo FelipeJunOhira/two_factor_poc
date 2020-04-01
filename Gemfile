@@ -29,6 +29,10 @@ gem 'dotenv-rails', '~> 2.5.0'
 
 # Authentication and acess management
 gem 'devise'
+gem 'devise-two-factor' # 2FA
+
+# Generate QRCode
+gem 'rqrcode-rails3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -36,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails', '~> 0.3.6'
 end
 
 group :development do

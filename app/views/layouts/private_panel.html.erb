@@ -13,7 +13,9 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %> 
+    <%= link_to "Settings", private_panel_settings_path %>
+    <span>|</span>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 
     <%= yield %>
   </body>

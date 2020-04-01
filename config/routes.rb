@@ -7,5 +7,13 @@ Rails.application.routes.draw do
     root 'homes#index'
 
     resources :homes, only: :index
+    resources :settings, only: :index
+    resource :qr_code, only: :show
+
+    namespace :settings do
+      resource :one_time_password, only: [:new, :create, :show, :destroy] do
+        get :intro
+      end
+    end
   end
 end

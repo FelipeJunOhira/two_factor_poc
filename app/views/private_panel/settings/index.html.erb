@@ -1,0 +1,11 @@
+<h1>Settings</h1>
+
+<% if current_user.otp_required_for_login? %>
+
+  <%= link_to "Disable One Time Password", private_panel_settings_one_time_password_path, method: :delete %>
+
+<% else current_user.otp_required_for_login? %>
+
+  <%= link_to "Config One Time Password", intro_private_panel_settings_one_time_password_path %>
+
+<% end %>
