@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: 'web'
+    tty: true
+    stdin_open: true
+    environment:
+      DATABASE_URL: postgres://postgres@postgres
+      DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: 'true'
+      BUNDLE_PATH: /bundle
+      BUNDLE_BIN: /bundle/bin
+      GEM_HOME: /bundle
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/web'
+      - .docker-volumes/bundle:/bundle
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12.1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ''
+    ports:
+      - '5432:5432'

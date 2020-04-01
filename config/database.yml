@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  url: <%= ENV.fetch('DATABASE_URL') %>
+
+development:
+  <<: *default
+  database: two_factor_poc_development
+
+test:
+  <<: *default
+  database: two_factor_poc_test_<%= ENV['TEST_ENV_NUMBER']	%>
+
+production:
+  <<: *default
+  database: two_factor_poc_production

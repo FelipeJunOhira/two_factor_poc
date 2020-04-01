@@ -1,0 +1,29 @@
+#!/bin/sh
+
+if [[ "$ENV" = "prod" ]]; then
+  export RAILS_ENV=production RACK_ENV=production
+elif [[ "$ENV" = "staging" ]]; then
+  export RAILS_ENV=staging RACK_ENV=staging
+fi
+
+set -e
+
+COMMAND="$1"
+
+case "$COMMAND" in
+  web)
+    exec bundle exec rails s -p 3000 -b '0.0.0.0' --pid /tmp/server.pid
+    ;;
+  migrate)
+    exec bundle exec rake db:migrate
+    ;;
+  test)
+    exec bundle exec rspec ./spec
+    ;;
+  setup)
+    exec ./bin/setup
+    ;;
+  *)
+    exec sh -c "$*"
+    ;;
+esac
