@@ -19,7 +19,7 @@ module PrivatePanel
         if @form.valid?
           current_user.update(otp_required_for_login: true)
 
-          flash[:notice] = 'OTP successfully registered!'
+          flash[:notice] = '2FA successfully configured! Next time you login we will required the 2FA code'
           redirect_to private_panel_settings_path
         else
           flash[:alert] = 'Something went wrong during OTP check'
