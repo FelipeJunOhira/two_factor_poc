@@ -1,0 +1,6 @@
+<h2>Two-factor authentication</h2>
+
+<%= simple_form_for @form, as: :form, url: private_panel_otp_checks_path do |f| %>
+  <%= f.input :code, required: true %>
+  <%= f.button :submit, 'Verify!' %>
+<% end %>

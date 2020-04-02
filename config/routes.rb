@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :settings, only: :index
     resource :qr_code, only: :show
 
+    resource :otp_checks, only: [:new, :create]
+
     namespace :settings do
       resource :one_time_password, only: [:new, :create, :destroy] do
         get :intro
