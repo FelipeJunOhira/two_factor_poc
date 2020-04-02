@@ -7,7 +7,7 @@ WORKDIR /web
 COPY Gemfile Gemfile.lock ./
 
 ARG bundler_args=""
-RUN bundle update --bundler && bundle install -j$(nproc) --binstubs='~/.bundle/bin' $bundler_args
+RUN gem install bundler:2.1.4 && bundle install -j$(nproc) --binstubs='~/.bundle/bin' $bundler_args
 
 COPY . .
 

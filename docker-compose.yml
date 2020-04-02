@@ -6,7 +6,7 @@ services:
     tty: true
     stdin_open: true
     environment:
-      DATABASE_URL: postgres://postgres@postgres
+      DATABASE_URL: postgres://postgres@db
       DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: 'true'
       BUNDLE_PATH: /bundle
       BUNDLE_BIN: /bundle/bin
